@@ -152,7 +152,32 @@
             <!-- Optional: Add social media links or other footer content -->
         </div>
     </footer>
+<script>
+  (function() {
+    // --- Configuration ---
+    // Set the maximum width (in pixels) to consider as "mobile/small screen"
+    const mobileBreakpoint = 768; 
 
+    // Set the URL of the mobile site to redirect to
+    const mobileRedirectUrl = 'https://pahan-new.github.io/papersnetmobile3/'; 
+    // --- End Configuration ---
+
+    // Get the current viewport width
+    const currentWidth = window.innerWidth;
+
+    // Check if the current width is less than or equal to the breakpoint
+    if (currentWidth <= mobileBreakpoint) {
+      // If it's a small screen, redirect to the mobile URL
+      window.location.replace(mobileRedirectUrl); 
+      // Using replace() is slightly better than assigning to href as it 
+      // doesn't leave the original page in the session history,
+      // meaning the user's back button won't just bring them back here.
+    }
+    // If the screen is wider than the breakpoint, this script does nothing,
+    // and the user stays on the current page (papersnet2).
+
+  })(); // Immediately Invoked Function Expression (IIFE) to avoid polluting global scope
+</script>
     <!-- JavaScript File -->
     <script src="script.js"></script>
 </body>
